@@ -18,13 +18,21 @@ return db('games')
 .del()
 }
 
-const insert = (body) => {
+async function insert(game) {
+    const [id] = await db('games')
+    .insert(game);
     return db('games')
-    .insert(body, 'id')
-    .then( ([id]) => {
-        return findById(id)
-    })
+    .where({ id })
+    .first();
 }
+ 
+// const insert = (body) => {
+//     return db('games')
+//     .insert(body, 'id')
+//     .then( ([id]) => {
+//         return findById(id)
+//     })
+// }
 
 const update = (body, id) => {
 return db('games')
