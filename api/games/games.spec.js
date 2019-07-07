@@ -39,8 +39,18 @@ describe("game model", () => {
 
     it("should return the new game on insert", async () => {
       const game = await Games.insert({ title: "Asteroids", genre: "Arcade", releaseYear: 1984 });
-
+      
       expect(game).toEqual({ id: 1, title: "Asteroids", genre: "Arcade", releaseYear: 1984 });
     });
   });
+  
+  describe('Insert to api/games', () => {
+    it('should recieve 201 if successful', () => {
+         const game = { title: 'Centipede', genre: 'Arcade'};
+    return request(server)
+    .post('/api/games')
+    .send(game)
+    .expect(201)
+    })
 });
+})

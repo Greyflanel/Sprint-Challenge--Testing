@@ -27,19 +27,23 @@ const id = req.params.id
 })
 
 router.post('/', (req, res) => {
-    const game = req.body;
-    
-    db.insert(game)
-    .then(games => {
-        res.status(201).json(games)
-    })
-    .catch(error => {
-        console.log(error)
-        res.status(500).json(error);
-        
-    })
-})
 
+            if(!req.body.title) {
+        return res.status(422).send({ message: 'missing game title'})
+    } else if(!req.body.genre) {
+        return res.status(422).send({ message: 'missing game genre'})
+    } else {
+        
+        db.insert(req.body)
+        .then(games => {
+            res.status(201).json(games)
+        })
+        .catch(error => {
+            console.log(error)
+            res.status(500).json(error)
+        })    
+}
+})
 
 router.delete('/:id', (req, res) => {
     const id = req.params.id
@@ -65,8 +69,6 @@ router.delete('/:id', (req, res) => {
         .catch(error => {
             console.log(error)
             res.status(500).json(error);
-            
         })
     })
-
 module.exports = router;

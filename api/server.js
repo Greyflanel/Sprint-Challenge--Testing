@@ -14,9 +14,8 @@ server.use(cors());
 
 server.use('/api/games', gamesRouter)
 
-server.get('/api/games', (req, res) => {
+server.get('/', (req, res) => {
     res.status(200).json(req.body);
 });
-
 
 module.exports = server;

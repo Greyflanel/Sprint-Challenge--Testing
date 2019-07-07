@@ -26,14 +26,6 @@ async function insert(game) {
     .first();
 }
  
-// const insert = (body) => {
-//     return db('games')
-//     .insert(body, 'id')
-//     .then( ([id]) => {
-//         return findById(id)
-//     })
-// }
-
 const update = (body, id) => {
 return db('games')
 .where({ id })
