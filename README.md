@@ -28,6 +28,18 @@ Demonstrate your understanding of this week's concepts by answering the followin
 1. What is the point of `Test Driven Development`? What do you think about this approach?
 1. Mention three types of automated tests.
 
+
+
+Answers:
+
+1. Describe divides your tests into components, while it actually performs individual tests.
+
+2. TDD encourages simple, proven design, and inspires confidence that the application has been tested against many test and edge cases.
+
+3. Unit testing, end-to-end testing, and integration testing.
+
+
+
 ## Project Set Up
 
 - [ ] Fork and clone this repository.
